@@ -1,0 +1,29 @@
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44304"
+  },
+  "ReRoutes": [
+    {
+      "UpstreamPathTemplate": "/erff/{catchAll}",
+      "DownstreamPathTemplate": "/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true,
+        "UseTracing": true
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [ "erffapi" ]
+      }
+    }
+  ]
+}
